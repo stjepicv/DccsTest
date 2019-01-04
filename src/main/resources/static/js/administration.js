@@ -20,7 +20,10 @@ function FormEditor(rootElement) {
         rootElement.find('#fields-container').append(fieldElement)
 
         fieldElement.find('.btn-add-field').click(() => addField())
-        fieldElement.find('.btn-remove-field').click(() => fieldElement.remove())
+        fieldElement.find('.btn-remove-field').click(() => {
+            fieldElement.remove()
+            updateIndexes()
+        })
 
         fieldElement.find('.field-type').change(() => {
             const newValue = fieldElement.find('.field-type').val()
@@ -66,6 +69,11 @@ function FormEditor(rootElement) {
         // this will show/hide additional options accordingly, 
         // change event listener was set a few lines ago inside this function
         fieldElement.find('.field-type').trigger('change')
+        updateIndexes()
+    }
+
+    function updateIndexes() {
+        $.each(rootElement.find('.field-index'), (index, element) => $(element).html(index + 1))
     }
 
     this.createFromData = (data) => {
