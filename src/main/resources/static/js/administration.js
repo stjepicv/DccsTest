@@ -9,7 +9,7 @@ function FormEditor(rootElement) {
 
     this.newForm = (formName) => {
         this.clear()
-        this.addField()
+        addField()
         this.formName = formName
     }
 

@@ -82,8 +82,12 @@ $(document).ready(() => {
 
         if (formName && formVersion) {
             $.get('./form/get', { name: formName, version: formVersion }, (response) => {
-                formManager.loadForm(response, formVersion)
-                formManager.show()
+                if (response) {
+                    formManager.loadForm(response, formVersion)
+                    formManager.show()
+                } else {
+                    alert('No form with this name exists')
+                }
             })
             .fail(() => alert('There was an error'))
         } else {
@@ -92,6 +96,7 @@ $(document).ready(() => {
     })
 
     $('#btn-save').click(() => {
+        console.log(JSON.stringify(formManager.getData()))
         formManager.hide()
         $.ajax({
             type: 'POST',
