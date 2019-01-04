@@ -1,0 +1,39 @@
+body {
+    padding-top: 65px;
+}
+
+.display-none {
+    display: none;
+}
+
+.field .btn-add-field {
+    visibility: hidden;
+}
+
+.field:last-child .btn-add-field {
+    visibility: visible;
+}
+
+.field {
+    margin-top: 26px;
+    margin-bottom: 26px;
+}
+
+.field-radio-option-count {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.field-radio-option-container {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#btn-save {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#form-editor, #form-container {
+    margin-top: 30px;
+}
